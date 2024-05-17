@@ -17,6 +17,12 @@ module.exports = {
       },
     },
     extend: {
+      padding: {
+        main: '40rem',
+      },
+      margin: {
+        main: '40rem',
+      },
       backgroundImage: {
         'hero': "url('./assets/home.jpg')",
       },
