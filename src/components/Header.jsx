@@ -19,7 +19,7 @@ const Header = () => {
 
   const logoutHandler = () => { }
 
-  let user = true;
+  let user = false;
 
   return (
     <header>

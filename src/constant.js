@@ -1,4 +1,5 @@
 import logo from "../assets/logo.png";
+import loginPhoto from "../assets/loginPhoto.png";
 
 import { TbBeach, TbMountain, TbPool } from "react-icons/tb";
 import {
@@ -277,7 +278,7 @@ export const facilities = [
   }
 ];
 
-export { logo, payment };
+export { logo, payment, loginPhoto };
 export { BiSolidMessageAltCheck, FaPhone };
 
 
