@@ -279,3 +279,95 @@ export const facilities = [
 
 export { logo, payment };
 export { BiSolidMessageAltCheck, FaPhone };
+
+
+
+// Temporary
+import img1 from "../assets/Listing1/1.jpg";
+import img2 from "../assets/Listing1/2.jpg";
+import img3 from "../assets/Listing1/3.jpeg";
+import img4 from "../assets/Listing1/4.jpg";
+import img5 from "../assets/Listing1/5.jpg";
+
+export const properties = [
+  {
+    _id: "kldjklfjdsklfdjkalfjdkl",
+    images: [img1, img2, img3, img4, img5],
+    label: "Beachfront",
+    location: "Milford, Connecticut, United States",
+    highlight: "An entire place",
+    price: 713,
+  },
+  {
+    _id: "kldjklfjdsklfdjkalfjdkl",
+    images: [img1, img2, img3, img4, img5],
+    label: "Beachfront",
+    location: "Milford, Connecticut, United States",
+    highlight: "An entire place",
+    price: 713,
+  },
+  {
+    _id: "kldjklfjdsklfdjkalfjdkl",
+    images: [img1, img2, img3, img4, img5],
+    label: "Beachfront",
+    location: "Milford, Connecticut, United States",
+    highlight: "An entire place",
+    price: 713,
+  },
+  {
+    _id: "kldjklfjdsklfdjkalfjdkl",
+    images: [img1, img2, img3, img4, img5],
+    label: "Beachfront",
+    location: "Milford, Connecticut, United States",
+    highlight: "An entire place",
+    price: 713,
+  },
+  {
+    _id: "kldjklfjdsklfdjkalfjdkl",
+    images: [img1, img2, img3, img4, img5],
+    label: "Beachfront",
+    location: "Milford, Connecticut, United States",
+    highlight: "An entire place",
+    price: 713,
+  },
+  {
+    _id: "kldjklfjdsklfdjkalfjdkl",
+    images: [img1, img2, img3, img4, img5],
+    label: "Beachfront",
+    location: "Milford, Connecticut, United States",
+    highlight: "An entire place",
+    price: 713,
+  },
+  {
+    _id: "kldjklfjdsklfdjkalfjdkl",
+    images: [img1, img2, img3, img4, img5],
+    label: "Beachfront",
+    location: "Milford, Connecticut, United States",
+    highlight: "An entire place",
+    price: 713,
+  },
+  {
+    _id: "kldjklfjdsklfdjkalfjdkl",
+    images: [img1, img2, img3, img4, img5],
+    label: "Beachfront",
+    location: "Milford, Connecticut, United States",
+    highlight: "An entire place",
+    price: 713,
+  },
+  {
+    _id: "kldjklfjdsklfdjkalfjdkl",
+    images: [img1, img2, img3, img4, img5],
+    label: "Beachfront",
+    location: "Milford, Connecticut, United States",
+    highlight: "An entire place",
+    price: 713,
+  },
+  {
+    _id: "kldjklfjdsklfdjkalfjdkl",
+    images: [img1, img2, img3, img4, img5],
+    label: "Beachfront",
+    location: "Milford, Connecticut, United States",
+    highlight: "An entire place",
+    price: 713,
+  },
+]

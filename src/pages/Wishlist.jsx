@@ -1,10 +1,20 @@
 import React from 'react';
+import { properties } from "../constant";
+import Card from "../components/Card";
 
 const Wishlist = () => {
   return (
-    <section>
-      <h1></h1>
-
+    <section className="mt-16">
+      <div className='w-[90%] mx-auto '>
+      <h1 className="text-4xl font-bold text-sky-900">Your Wish List</h1>
+      <div className="flex justify-center items-center gap-[1.75rem] mt-16 flex-wrap">
+          {
+            properties.map((property, id) => (
+              <Card key={id} property={property} />
+            ))
+          }
+        </div>
+      </div>
     </section>
   )
 }
