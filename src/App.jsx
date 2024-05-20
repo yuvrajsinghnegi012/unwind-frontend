@@ -2,6 +2,8 @@ import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+// import DnD from "./DnD";
+
 
 const Home = lazy(() => import("./pages/Home"));
 const Login = lazy(() => import("./pages/Login"));
@@ -14,6 +16,7 @@ const HostProperty = lazy(() => import("./pages/HostProperty"));
 const Propertylist = lazy(() => import("./pages/Propertylist"));
 const Reservationlist = lazy(() => import("./pages/Reservationlist"));
 const Triplist = lazy(() => import("./pages/Triplist"));
+const Checkout = lazy(() => import("./pages/Checkout"));
 const Loader = lazy(() => import("./components/Loader"));
 
 function App() {
@@ -31,6 +34,7 @@ function App() {
           <Route path="/trips" element={<Triplist />} />
           <Route path="/properties" element={<Propertylist />} />
           <Route path="/host-property" element={<HostProperty />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="/:userID/:propertyId" element={<PropertyDetails />} />
           <Route path="/search" element={<Search />} />
         </Routes>

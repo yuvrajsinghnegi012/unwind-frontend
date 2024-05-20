@@ -48,6 +48,13 @@ import {
 import { AiFillCar } from "react-icons/ai";
 import { BiSolidMessageAltCheck } from "react-icons/bi";
 import { FaPhone } from "react-icons/fa6";
+import { FaRegHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa6";
+import { FiMinusCircle } from "react-icons/fi";
+import { MdAddCircleOutline } from "react-icons/md";
+import { IoIosImages } from "react-icons/io";
+import { BiTrash } from "react-icons/bi";
+
 import payment from "../assets/payment.png";
 
 export const categories = [
@@ -99,7 +106,7 @@ export const categories = [
   },
   {
     img: "../assets/skiing_cat.jpg",
-    label: "Ski-in/out",
+    label: "Ski-in-out",
     icon: FaSkiing,
     description: "This property has skiing activies!",
   },
@@ -169,117 +176,144 @@ export const types = [
 
 export const facilities = [
   {
+    id: 1,
     name: "Bath tub",
     icon: PiBathtubFill,
   },
   {
+    id: 2,
     name: "Personal care products",
     icon: FaPumpSoap,
   },
   {
+    id: 3,
     name: "Outdoor shower",
     icon: FaShower,
   },
   {
+    id: 5,
     name: "Washer",
     icon: BiSolidWasher,
   },
   {
+    id: 6,
     name: "Dryer",
     icon: BiSolidDryer,
   },
   {
+    id: 7,
     name: "Hangers",
     icon: PiCoatHangerFill,
   },
   {
+    id: 8,
     name: "Iron",
     icon: TbIroning3,
   },
   {
+    id: 9,
     name: "TV",
     icon: PiTelevisionFill,
   },
   {
+    id: 10,
     name: "Dedicated workspace",
     icon: BsPersonWorkspace
   },
   {
+    id: 11,
     name: "Air Conditioning",
     icon: BsSnow,
   },
   {
+    id: 12,
     name: "Heating",
     icon: GiHeatHaze,
   },
   {
+    id: 13,
     name: "Security cameras",
     icon: GiCctvCamera,
   },
   {
+    id: 14,
     name: "Fire extinguisher",
     icon: FaFireExtinguisher,
   },
   {
+    id: 15,
     name: "First Aid",
     icon: BiSolidFirstAid,
   },
   {
+    id: 16,
     name: "Wifi",
     icon: BiWifi,
   },
   {
+    id: 17,
     name: "Cooking set",
     icon: FaKitchenSet,
   },
   {
+    id: 18,
     name: "Refrigerator",
     icon: BiSolidFridge,
   },
   {
+    id: 19,
     name: "Microwave",
     icon: MdMicrowave,
   },
   {
+    id: 20,
     name: "Stove",
     icon: GiToaster,
   },
   {
+    id: 21,
     name: "Barbecue grill",
     icon: GiBarbecue,
   },
   {
+    id: 22,
     name: "Outdoor dining area",
     icon: FaUmbrellaBeach,
   },
   {
+    id: 23,
     name: "Private patio or Balcony",
     icon: MdBalcony,
   },
   {
+    id: 24,
     name: "Camp fire",
     icon: GiCampfire,
   },
   {
+    id: 25,
     name: "Garden",
     icon: MdYard,
   },
   {
+    id: 26,
     name: "Free parking",
     icon: AiFillCar,
   },
   {
+    id: 27,
     name: "Self check-in",
     icon: FaKey,
   },
   {
+    id: 28,
     name: " Pet allowed",
     icon: MdPets,
   }
 ];
 
 export { logo, payment, loginPhoto };
-export { BiSolidMessageAltCheck, FaPhone };
+export { BiSolidMessageAltCheck, FaPhone, FaRegHeart, FaHeart, FiMinusCircle, MdAddCircleOutline, IoIosImages, BiTrash };
 
 
 
