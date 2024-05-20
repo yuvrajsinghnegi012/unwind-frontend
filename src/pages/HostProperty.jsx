@@ -271,7 +271,6 @@ const HostProperty = () => {
               </div>
             </div>
           </div>
-
         </div>
 
         {/* What Does Place Offers */}
