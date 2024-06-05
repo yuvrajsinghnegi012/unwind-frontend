@@ -24,9 +24,9 @@ const Header = () => {
     <header>
       <div className="px-8 py-3 flex gap-4 justify-between items-center">
         <img src={logo} className="h-16 cursor-pointer" alt="Logo" onClick={() => navigate("/")} />
-        <div className="flex items-center justify-between px-4 py-2 rounded-full border-2 border-slate-500 lg:w-[20rem]">
+        <div className="flex items-center justify-between px-4 py-2 rounded-full border-2 border-slate-400 lg:w-[20rem]">
           <input type="text" name="search" id="search" placeholder="Mountains...." className="w-[60%] md:w-full outline-none" />
-          <IoMdSearch className="text-red-700 font-bold text-2xl cursor-pointer" onClick={() => navigate("/search")} />
+          <IoMdSearch className="text-orange-600 font-bold text-2xl cursor-pointer" onClick={() => navigate("/search")} />
         </div>
         <div className="flex items-center gap-2">
           <button className="text-slate-800 font-medium" onClick={() => navigate("/host-property")}>Become A Host</button>
