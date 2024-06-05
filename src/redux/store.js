@@ -5,7 +5,7 @@ import { userApi } from "./apis/userApi";
 
 export const store = configureStore({
     reducer: {
-        [userSlice.name]: userSlice.reducer,
+        [userSlice.name]: userSlice,
         [userApi.reducerPath]: userApi.reducer,
     },
 
