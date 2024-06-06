@@ -4,9 +4,10 @@ import { useSignUpMutation } from '../redux/apis/userApi';
 import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../redux/slices/user';
+
 const Register = () => {
-  const [error, setError] = useState(null);
-  const [signUp, { isLoading }] = useSignUpMutation();
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [signUp, { isLoading, error }] = useSignUpMutation();
   const [profilePicture, setProfilePicture] = useState(null);
   const [formData, setFormData] = useState({
     name: "",
@@ -26,22 +27,28 @@ const Register = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    setErrorMessage(null);
     const newFormData = new FormData();
     for (const key in formData) {
       newFormData.append(key, formData[key]);
     }
 
     const response = await signUp(newFormData);
-    const data = response.data;
-    console.log(data);
-    if(!data.success){
-      setError(data.message);
+    console.log(response);
+    if(error){
+      console.log(error);
+      setErrorMessage(error.data.message);
       return;
     }
 
-    // Will have to save in the store
-    dispatch(setUser(data.user));
-    toast.success(data.message);
+    else{
+      const data = response.data;
+      console.log(data);
+      
+      // Will have to save in the store
+      dispatch(setUser(data.user));
+      toast.success(data.message);
+    }
   }
   
   // Updating the profilePicture
@@ -125,7 +132,7 @@ const Register = () => {
               </button>
               {
                 error && (
-                  <p>Something went wrong</p>
+                  <p className='text-red-600 text-sm -mt-2'>{errorMessage || `Something went wrong`}</p>
               )
               }
             <p className='text-[.9rem]'>Already have an account? <button type='button' className='text-orange-500 cursor-pointer'>Sign in here!</button></p>
