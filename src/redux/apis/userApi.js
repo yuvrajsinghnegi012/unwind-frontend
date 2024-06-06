@@ -9,11 +9,18 @@ export const userApi = createApi({
     }),
     endpoints: (builder) => ({
         signUp: builder.mutation({
-            query: (details) =>({
+            query: (formData) =>({
                 url: 'new',
                 method: 'POST',
-                body: details,
+                body: formData,
             }),
+        }),
+        login: builder.mutation({
+            query: (formData) =>({
+                url: "login",
+                method: "POST",
+                body: formData,
+            })
         }),
         singleUser: builder.query({
             query: (id) => `${id}`,
@@ -21,4 +28,4 @@ export const userApi = createApi({
     }),
 });
 
-export const { useSingleUserQuery, useSignUpMutation } = userApi;
+export const { useSingleUserQuery, useSignUpMutation, useLoginMutation} = userApi;

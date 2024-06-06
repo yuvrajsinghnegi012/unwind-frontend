@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import { loginPhoto } from '../constant';
 import { useSignUpMutation } from '../redux/apis/userApi';
 import toast from 'react-hot-toast';
-import { useDispatch } from 'react-redux';
-import { setUser } from '../redux/slices/user';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [errorMessage, setErrorMessage] = useState(null);
@@ -17,7 +16,8 @@ const Register = () => {
     profilePicture: "",
   })
 
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const changeHandler = (e) => {
     setFormData((prev) => ({
       ...prev,
@@ -28,6 +28,8 @@ const Register = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     setErrorMessage(null);
+
+    // Making The FormData To Send Images 
     const newFormData = new FormData();
     for (const key in formData) {
       newFormData.append(key, formData[key]);
@@ -35,22 +37,19 @@ const Register = () => {
 
     const response = await signUp(newFormData);
     console.log(response);
-    if(error){
+
+    // If error occured
+    if (error) {
       console.log(error);
       setErrorMessage(error.data.message);
-      return;
+      // return;
     }
-
-    else{
+    else {
       const data = response.data;
-      console.log(data);
-      
-      // Will have to save in the store
-      dispatch(setUser(data.user));
-      toast.success(data.message);
+      navigate("/login")
     }
   }
-  
+
   // Updating the profilePicture
   const pictureHandler = (e) => {
     const file = e.target.files[0];
@@ -124,17 +123,17 @@ const Register = () => {
                 className='px-4 py-[.4rem] mt-[.2rem] text-sm w-full outline-none rounded-lg border-[1px] border-slate-400
                 ' />
             </div>
-            <button className='text-white w-full rounded-lg text-center bg-orange-600 py-2 -mt-1 px-4'  disabled={isLoading}>
-            {
+            <button className='text-white w-full rounded-lg text-center bg-orange-600 py-2 -mt-1 px-4' disabled={isLoading}>
+              {
                 isLoading ? 'Loading...' : `Sign Up`
               }
               {/* Sign Up */}
-              </button>
-              {
-                error && (
-                  <p className='text-red-600 text-sm -mt-2'>{errorMessage || `Something went wrong`}</p>
+            </button>
+            {
+              error && (
+                <p className='text-red-600 text-sm -mt-2'>{errorMessage || `Something went wrong`}</p>
               )
-              }
+            }
             <p className='text-[.9rem]'>Already have an account? <button type='button' className='text-orange-500 cursor-pointer'>Sign in here!</button></p>
           </form>
         </div>
