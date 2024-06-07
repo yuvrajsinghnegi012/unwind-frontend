@@ -326,7 +326,7 @@ import img5 from "../assets/Listing1/5.jpg";
 
 export const properties = [
   {
-    _id: "kldjklfjdsklfdjkalfjdkl",
+    _id: "6651d94c45115333dd143eea",
     images: [img1, img2, img3, img4, img5],
     label: "Beachfront",
     location: "Milford, Connecticut, United States",
@@ -334,7 +334,7 @@ export const properties = [
     price: 713,
   },
   {
-    _id: "kldjklfjdsklfdjkalfjdkl",
+    _id: "6651d94c45115333dd143eea",
     images: [img1, img2, img3, img4, img5],
     label: "Beachfront",
     location: "Milford, Connecticut, United States",
@@ -342,7 +342,7 @@ export const properties = [
     price: 713,
   },
   {
-    _id: "kldjklfjdsklfdjkalfjdkl",
+    _id: "6651d94c45115333dd143eea",
     images: [img1, img2, img3, img4, img5],
     label: "Beachfront",
     location: "Milford, Connecticut, United States",
@@ -350,7 +350,7 @@ export const properties = [
     price: 713,
   },
   {
-    _id: "kldjklfjdsklfdjkalfjdkl",
+    _id: "6651d94c45115333dd143eea",
     images: [img1, img2, img3, img4, img5],
     label: "Beachfront",
     location: "Milford, Connecticut, United States",
@@ -358,7 +358,7 @@ export const properties = [
     price: 713,
   },
   {
-    _id: "kldjklfjdsklfdjkalfjdkl",
+    _id: "6651d94c45115333dd143eea",
     images: [img1, img2, img3, img4, img5],
     label: "Beachfront",
     location: "Milford, Connecticut, United States",
@@ -366,7 +366,7 @@ export const properties = [
     price: 713,
   },
   {
-    _id: "kldjklfjdsklfdjkalfjdkl",
+    _id: "6651d94c45115333dd143eea",
     images: [img1, img2, img3, img4, img5],
     label: "Beachfront",
     location: "Milford, Connecticut, United States",
@@ -374,7 +374,7 @@ export const properties = [
     price: 713,
   },
   {
-    _id: "kldjklfjdsklfdjkalfjdkl",
+    _id: "6651d94c45115333dd143eea",
     images: [img1, img2, img3, img4, img5],
     label: "Beachfront",
     location: "Milford, Connecticut, United States",
@@ -382,7 +382,7 @@ export const properties = [
     price: 713,
   },
   {
-    _id: "kldjklfjdsklfdjkalfjdkl",
+    _id: "6651d94c45115333dd143eea",
     images: [img1, img2, img3, img4, img5],
     label: "Beachfront",
     location: "Milford, Connecticut, United States",
@@ -390,7 +390,7 @@ export const properties = [
     price: 713,
   },
   {
-    _id: "kldjklfjdsklfdjkalfjdkl",
+    _id: "6651d94c45115333dd143eea",
     images: [img1, img2, img3, img4, img5],
     label: "Beachfront",
     location: "Milford, Connecticut, United States",
@@ -398,11 +398,44 @@ export const properties = [
     price: 713,
   },
   {
-    _id: "kldjklfjdsklfdjkalfjdkl",
+    _id: "6651d94c45115333dd143eea",
     images: [img1, img2, img3, img4, img5],
     label: "Beachfront",
     location: "Milford, Connecticut, United States",
     highlight: "An entire place",
     price: 713,
   },
-]
+];
+
+
+
+////////////////////////////////
+// Single Property
+// import img1 from "../assets/Listing1/1.jpg";
+// import img2 from "../assets/Listing1/2.jpg";
+// import img3 from "../assets/Listing1/3.jpeg";
+// import img4 from "../assets/Listing1/4.jpg";
+// import img5 from "../assets/Listing1/5.jpg";
+// import img6 from "../assets/Listing1/6.jpg";
+// import img7 from "../assets/Listing1/7.jpg";
+// import img8 from "../assets/Listing1/8.jpg";
+// import userImg from "../assets/phucmai.png";
+
+// export const property = {
+//   name: "Cheerful 3 Bedroom Cottage with Fire Place",
+//   price: 1080,
+//   location: "Milford, Connecticut, United States",
+//   images: [img1, img2, img3, img4, img5, img6, img7, img8],
+//   guests: 3,
+//   bedroom: 2,
+//   bed: 2,
+//   bath: 1,
+//   host: {
+//     name: "Phuc Mai",
+//     profilePicture: userImg,
+//   },
+//   desc: "Located at the end of a gravel Lane, amongst tree, making it the perfect gateway. The expansive patio and beachfront yard offer infinity views of your private beach. Bait a crab pot to catch your own dinner or enjoy a meal from one of the local restaurants. A spacious modern apen living space with amazing views greets you upon arrival. The space opens onto your private deck with an outdoor seating area. Take your pick of two private bedrooms with access to outdoor balcony spaces and amazing water views. Bathrooms are well appointed with all the comforts of home.",
+//   highlight: "Recharge your battery and reset your mind by staying at our waterfront paradise.",
+//   highlightDesc: "Spend time with your trive while relaxing in this beautiful, well-appointed home featuring stunning wide water views of the Chesapeake Bay.",
+//   facilities: [1, 2, 3, 5, 8, 22, 24, 25, 27],
+// }

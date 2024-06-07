@@ -12,13 +12,14 @@ import {
   MenubarSeparator,
   MenubarTrigger,
 } from "@/components/ui/menubar";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const navigate = useNavigate();
+  const { user } = useSelector((state)=>state.reducer);
 
-  const logoutHandler = () => { }
-  let user = false;
+  const logoutHandler = () => {};
 
   return (
     <header>

@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useLoginMutation } from '../redux/apis/userApi';
 import { setUser } from '../redux/slices/user';
-
+import toast from 'react-hot-toast';
 
 const Login = () => {
   const [errorMessage, setErrorMessage] = useState(null);
@@ -29,7 +29,6 @@ const Login = () => {
     setErrorMessage(null);
 
     const response = await login(formData);
-    console.log(response);
     if (error) {
       setErrorMessage(error.data.message);
       return;

@@ -25,7 +25,13 @@ export const userApi = createApi({
         singleUser: builder.query({
             query: (id) => `${id}`,
         }),
+        toggleWishlistProperty: builder.mutation({
+            query: ({userId, propertyId})=>({
+                url: `wishlist/${userId}/${propertyId}`,
+                method: `POST`,
+            }),
+        }),
     }),
 });
 
-export const { useSingleUserQuery, useSignUpMutation, useLoginMutation} = userApi;
+export const { useSingleUserQuery, useSignUpMutation, useLoginMutation, useToggleWishlistPropertyMutation } = userApi;

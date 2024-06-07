@@ -1,12 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
-
-import userSlice from "./slices/user";
+import { bookingApi } from "./apis/bookingApi";
+import { propertyApi } from "./apis/propertyApi";
 import { userApi } from "./apis/userApi";
+import userSlice from "./slices/user";
 
 export const store = configureStore({
     reducer: {
         [userSlice.name]: userSlice,
         [userApi.reducerPath]: userApi.reducer,
+        [propertyApi.reducerPath]: propertyApi.reducer,
+        [bookingApi.reducerPath]: bookingApi.reducer,
     },
 
     // Adding the api middleware enables caching, invalidation, polling,
@@ -14,5 +17,7 @@ export const store = configureStore({
     middleware: (mid) =>[
         ...mid(),
         userApi.middleware,
+        propertyApi.middleware,
+        bookingApi.middleware,
     ],
 });
