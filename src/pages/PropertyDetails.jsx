@@ -43,7 +43,6 @@ const PropertyDetails = () => {
   }
   const property = data?.property;
 
-  // Property Order
   const propertyOrder = {
     date,
     userId: user?._id,
@@ -226,7 +225,7 @@ const PropertyDetails = () => {
                 <p className="text-2xl font-bold">Total Price: ₹{property.price * nights}</p>
                 <p>Start Date: {date?.from ? format(date.from, "dd-MMMM-y") : "-"}</p>
                 <p>Start Date: {date?.to ? format(date.to, "dd-MMMM-y") : "-"}</p>
-                <button className='text-white w-full rounded-lg text-center bg-orange-500 py-2 -mt-1 px-4' disabled={isBookingLoading} onClick={bookingHandler}>
+                <button className='text-white w-full rounded-lg text-center bg-orange-500 py-2 mt-3 px-4' disabled={isBookingLoading} onClick={bookingHandler}>
                   {
                     isBookingLoading ? 'Loading...' : `Booking`
                   }
