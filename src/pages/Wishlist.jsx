@@ -1,5 +1,4 @@
 import React from 'react';
-import { properties } from "../constant";
 import Card from "../components/Card";
 import Loader from '../components/Loader';
 import { useSelector } from 'react-redux';
@@ -10,7 +9,6 @@ import { useNavigate } from 'react-router-dom';
 const Wishlist = () => {
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.reducer);
-  console.log(user);
 
   //Fetching Wishlist
   if(!user){
