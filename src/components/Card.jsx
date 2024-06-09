@@ -1,7 +1,6 @@
 import Carousel from "react-material-ui-carousel";
 import { useNavigate } from "react-router-dom";
 import { FaHeart, FaRegHeart } from "../constant";
-import { useState } from "react";
 import { useToggleWishlistPropertyMutation } from "../redux/apis/userApi";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../redux/slices/user";
@@ -28,9 +27,7 @@ const Card = ({ property }) => {
         // Saving the Updated user in the redux
         dispatch(setUser(data?.updatedUser));
     }
-
     const inWishlist = user?.wishlist?.inlcludes(property._id);
-
 
     return (
         <div className="relative flex flex-col items-start">

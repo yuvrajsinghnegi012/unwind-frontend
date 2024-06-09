@@ -12,14 +12,32 @@ import {
   MenubarSeparator,
   MenubarTrigger,
 } from "@/components/ui/menubar";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useLogoutMutation } from "../redux/apis/userApi";
+import toast from "react-hot-toast";
+import { setUser } from "@/redux/slices/user";
+
 
 const Header = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { user } = useSelector((state)=>state.reducer);
+  const [logout, {error}] = useLogoutMutation();
 
-  const logoutHandler = () => {};
+  const logoutHandler = async () => {
+    await logout();
+    if(error){
+      toast.error("Something went wrong");
+      console.log(error);
+      return;
+    }
+    else{
+      dispatch(setUser(null));
+      navigate("/");
+      toast.success("Logout Successful");
+    }
+  };
 
   return (
     <header>

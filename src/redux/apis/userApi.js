@@ -33,8 +33,14 @@ export const userApi = createApi({
         }),
         getWishlist: builder.query({
             query: (userId) => `wishlist/${userId}`,
-        })
+        }),
+        logout: builder.mutation({
+            query: ()=>({
+                url: "logout",
+                method: 'POST',
+            }),
+        }),
     }),
 });
 
-export const { useSingleUserQuery, useSignUpMutation, useLoginMutation, useToggleWishlistPropertyMutation, useGetWishlistQuery } = userApi;
+export const { useSingleUserQuery, useSignUpMutation, useLoginMutation, useToggleWishlistPropertyMutation, useGetWishlistQuery, useLogoutMutation } = userApi;

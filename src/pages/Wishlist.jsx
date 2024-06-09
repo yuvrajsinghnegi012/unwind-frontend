@@ -13,12 +13,16 @@ const Wishlist = () => {
   console.log(user);
 
   //Fetching Wishlist
+  if(!user){
+    toast.success("Login Required");
+    navigate("/login");
+    return;
+  }
   const { data, isLoading, error } = useGetWishlistQuery(user?._id);
-  console.log("data is: ", data);
   if (error) {
     console.log("error is: ", error);
     toast.error("Something went wrong");
-    // navigate("/");
+    navigate("/");
   }
   const properties = data?.wishlist;
 

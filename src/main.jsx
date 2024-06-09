@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Provider store={store}>
         <DndProvider backend={HTML5Backend}>
           <App />
-          <Toaster />
+          <Toaster position='bottom-center'/>
         </DndProvider>
       </Provider>
     </BrowserRouter>
