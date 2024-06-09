@@ -7,10 +7,17 @@ export const propertyApi = createApi({
         baseUrl: `${server}/api/v1/property`,
     }),
     endpoints: (builder)=>({
+        newProperty: builder.mutation({
+            query: ({formData, userId}) =>({
+                url: `new/${userId}`,
+                method: 'POST',
+                body: formData,
+            }),
+        }),
         getSingleProperty: builder.query({
             query: (id) => `${id}`,
         })
     }),
 });
 
-export const { useGetSinglePropertyQuery } = propertyApi;
+export const { useGetSinglePropertyQuery, useNewPropertyMutation } = propertyApi;

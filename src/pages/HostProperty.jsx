@@ -1,49 +1,29 @@
 import UploadImageCard from '../components/UploadImageCard';
 import { useCallback, useEffect, useState } from 'react';
-import img1 from "../../assets/Listing1/1.jpg";
-import img2 from "../../assets/Listing1/2.jpg";
-import img3 from "../../assets/Listing1/3.jpeg";
-import img4 from "../../assets/Listing1/4.jpg";
-import img5 from "../../assets/Listing1/5.jpg";
-import { FiMinusCircle, MdAddCircleOutline, categories, facilities, IoIosImages, BiTrash } from "../constant";
-
-export const properties = [
-  {
-    _id: 1,
-    img: img1,
-  },
-  {
-    _id: 2,
-    img: img2,
-  },
-  {
-    _id: 3,
-    img: img3,
-  },
-  {
-    _id: 4,
-    img: img4,
-  },
-  {
-    _id: 5,
-    img: img5,
-  },
-]
+import { FiMinusCircle, MdAddCircleOutline, categories, facilities, IoIosImages } from "../constant";
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { useNewPropertyMutation } from '@/redux/apis/propertyApi';
+import { setUser } from '../redux/slices/user';
 
 const HostProperty = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.reducer);
   const [category, setCategory] = useState(null);
   const [placeFacilities, setPlaceFacilities] = useState([]);
-  const [images, setImages] = useState(properties); /// will be sent to the backend in array
+  const [images, setImages] = useState([]); /// will be sent to the backend in array
   const [photos, setPhotos] = useState([]); // will be in the form of objects
   const [propertyLocation, setPropertyLocation] = useState({
-    street: "",
     apartmentId: "",
+    street: "",
     city: "",
     province: "",
     country: "",
   });
   const [propertyDetails, setPropertyDetails] = useState({
-    title: "",
+    name: "",
     desc: "",
     highlight: "",
     highlightDesc: "",
@@ -53,11 +33,11 @@ const HostProperty = () => {
     guests: 1,
     bedrooms: 1,
     beds: 1,
-    bathrooms: 1,
+    baths: 1,
   })
+  const [newProperty, { isLoading, error }] = useNewPropertyMutation();
 
   // HANDLERS
-
   const propertyLocationChangeHandler = (e) => {
     setPropertyLocation((prev) => ({
       ...prev,
@@ -68,7 +48,6 @@ const HostProperty = () => {
     e.preventDefault();
     console.log("Property Location is: ", propertyLocation);
   }
-
   const propertyDetailsChangeHandler = (e) => {
     setPropertyDetails((prev) => ({
       ...prev,
@@ -79,7 +58,6 @@ const HostProperty = () => {
     e.preventDefault();
     console.log("Property Details are: ", propertyDetails);
   }
-
   const decreaseCount = (item) => {
     const cat = item.toLowerCase();
     if (basicCount[cat] < 2) return;
@@ -96,7 +74,6 @@ const HostProperty = () => {
       [cat]: basicCount[cat] + 1,
     }));
   }
-
   const toggleFacility = (id) => {
     const alreadyAdded = placeFacilities.includes(id);
     if (alreadyAdded) {
@@ -108,7 +85,6 @@ const HostProperty = () => {
     // Not Exist -- Add Facility
     setPlaceFacilities((prev) => ([...prev, id]));
   }
-
   const handleUploadPhotos = (e) => {
     const newPhotos = Array.from(e.target.files);
     setPhotos((prev) => ([
@@ -122,11 +98,8 @@ const HostProperty = () => {
     ]));
   }
   const removePhotoHandler = (idToRemove) => {
-    console.log("Photos array is: ", photos);
-    console.log("For Id: ", idToRemove);
     setPhotos((prev) => prev.filter((photo) => photo.id != idToRemove));
   }
-
   const moveImage = useCallback((dragIndex, hoverIndex) => {
     setImages((prevCards) => {
       const clonedCards = [...prevCards];
@@ -135,18 +108,45 @@ const HostProperty = () => {
       return clonedCards;
     });
   }, []);
+  const createListingHandler = async () => {
+    // No user logged in
+    if (!user) {
+      toast.error("Login Required");
+      navigate("/login");
+      return;
+    }
+    // Making Final Form Data
+    const newFormData = new FormData();
+    newFormData.append("category", category);
+    const loc = Object.values(propertyLocation).join(", ");
+    newFormData.append("location", loc);
+    for (const key in basicCount) {
+      newFormData.append(key, basicCount[key]);
+    }
+    for (const facility of placeFacilities) {
+      newFormData.append("facilities", facility);
+    }
+    for (const key in propertyDetails) {
+      newFormData.append(key, propertyDetails[key]);
+    }
+    for (const image of images) {
+      newFormData.append("images", image);
+    }
 
-  const createListingHandler = () => {
-    console.log("Category is: ", category);
-    console.log("Place Facilities are: ", placeFacilities);
-    console.log("Basic Count is", basicCount);
-    console.log("Property Photos are: ", images);
-    console.log("Property Location is: ", propertyLocation);
-    console.log("Property Details are: ", propertyDetails);
+    const { data } = await newProperty({ formData: newFormData, userId: user?._id });
+    if (error) {
+      console.log("error is: ", error);
+      return;
+    }
+    else {
+      dispatch(setUser(data?.updatedUser));
+      toast.success("Property Created");
+      navigate("/properties");
+    }
   }
 
   useEffect(() => {
-    setImages(() => photos.map((photo) => photo.img));
+    setImages(() => photos?.map((photo) => photo.img));
   }, [photos]);
 
   return (
@@ -249,7 +249,7 @@ const HostProperty = () => {
                   <p className='mb-3 font-semibold'>Share some basics about your place</p>
                   <div className='flex gap-6 justify-start align-center'>
                     {
-                      ["Guests", "Bedrooms", "Beds", "Bathrooms"].map((item, i) => (
+                      ["Guests", "Bedrooms", "Beds", "Baths"].map((item, i) => (
                         <div key={i} className='flex justify-center items-center p-2 rounded-md gap-3 border-2 border-slate-400 font-semibold'>
                           <p className='text-[.92rem]'>{item}</p>
                           <div className='flex gap-1 items-center'>
@@ -340,19 +340,19 @@ const HostProperty = () => {
           <div className='flex justify-start items-center flex-wrap gap-4 w-full'>
             <form onSubmit={propertyDetailsSubmitHandler} className='flex flex-col w-[35rem] mt-2 gap-5'>
               <div className='flex flex-col gap-2'>
-                <label htmlFor="title" className='text-gray-700 font-medium'>Title</label>
+                <label htmlFor="title" className='text-gray-700 font-medium'>Name</label>
                 <input
                   type="text"
-                  name='title'
-                  id='title'
-                  value={propertyDetails.title}
+                  name='name'
+                  id='name'
+                  value={propertyDetails.name}
                   placeholder='A luxurious glamping tent...'
                   onChange={propertyDetailsChangeHandler}
                   className='outline-none border-2 border-slate-500 px-3 py-2 rounded-lg w-full'
                 />
               </div>
               <div className='flex flex-col gap-2'>
-                <label htmlFor="desc" className='text-gray-700 font-medium'>Apartemnt, Suite, etc. (if applicable)</label>
+                <label htmlFor="desc" className='text-gray-700 font-medium'>Description</label>
                 <textarea
                   name='desc'
                   id='desc'
@@ -403,9 +403,17 @@ const HostProperty = () => {
           </div>
         </div>
 
-        <button className="mt-3 text-white px-5 py-2 bg-orange-500 hover:bg-orange-600 duration-300 transition-all rounded-lg"
-          onClick={createListingHandler}
-        >Create Your Listing</button>
+        <button className='mt-3 text-white px-5 py-2 bg-orange-500 hover:bg-orange-600 duration-300 transition-all rounded-lg' disabled={isLoading} onClick={createListingHandler}>
+          {
+            isLoading ? 'Loading...' : `Create Your Listing`
+          }
+          {/* Sign Up */}
+        </button>
+        {
+          error && (
+            <p className='text-red-600 text-sm -mt-2'>{error.message || `Something went wrong`}</p>
+          )
+        }
       </div>
     </section>
   )
