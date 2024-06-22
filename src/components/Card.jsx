@@ -4,12 +4,15 @@ import { FaHeart, FaRegHeart } from "../constant";
 import { useToggleWishlistPropertyMutation } from "../redux/apis/userApi";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../redux/slices/user";
+import { useState, useEffect } from "react";
+import Loader from "./Loader";
 
 const Card = ({ property }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [toggleWishlist] = useToggleWishlistPropertyMutation();
+    const [toggleWishlist, { isLoading, error }] = useToggleWishlistPropertyMutation();
     const { user } = useSelector((state) => state.reducer);
+    const [inWishlist, setInWishlist] = useState(true);
 
     const wishlistHandler = async () => {
         if (!user) {
@@ -17,7 +20,7 @@ const Card = ({ property }) => {
             return;
         }
         // Add Wishlist Functionality
-        const { data, error } = await toggleWishlist({ userId: user?._id, propertyId: property?._id });
+        const { data } = await toggleWishlist({ userId: user?._id, propertyId: property?._id });
         if (error) {
             toast.error("Something went wrong");
             navigate("/");
@@ -26,10 +29,11 @@ const Card = ({ property }) => {
 
         // Saving the Updated user in the redux
         dispatch(setUser(data?.updatedUser));
+        setInWishlist(!inWishlist);
     }
-    const inWishlist = user?.wishlist?.inlcludes(property._id);
 
     return (
+        isLoading ? <Loader /> : (
         <div className="relative flex flex-col items-start">
             <Carousel className="h-[13rem] w-[20rem] rounded-lg mb-2">
                 {
@@ -48,11 +52,12 @@ const Card = ({ property }) => {
             </div>
             <div className="absolute z-10 top-2 right-2">
                 {
-                    inWishlist ? <FaHeart className="text-red-600 text-lg" onClick={wishlistHandler} /> : <FaRegHeart className="text-red-600 text-lg" onClick={wishlistHandler} />
+                    inWishlist ? <FaHeart className="text-red-600 text-lg cursor-pointer" onClick={wishlistHandler} /> : <FaRegHeart className="text-red-600 text-lg cursor-pointer" onClick={wishlistHandler} />
                 }
             </div>
         </div>
     )
+)
 }
 
 export default Card;

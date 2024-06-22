@@ -34,6 +34,9 @@ export const userApi = createApi({
         getWishlist: builder.query({
             query: (userId) => `wishlist/${userId}`,
         }),
+        getTriplist: builder.query({
+            query: (userId) => `triplist/${userId}`,
+        }),
         getPropertiesList: builder.query({
             query: (userId) => `propertieslist/${userId}`,
         }),
@@ -46,4 +49,4 @@ export const userApi = createApi({
     }),
 });
 
-export const { useSingleUserQuery, useSignUpMutation, useLoginMutation, useToggleWishlistPropertyMutation, useGetWishlistQuery, useGetPropertiesListQuery, useLogoutMutation } = userApi;
+export const { useSingleUserQuery, useSignUpMutation, useLoginMutation, useToggleWishlistPropertyMutation, useGetWishlistQuery, useGetTriplistQuery, useGetPropertiesListQuery, useLogoutMutation } = userApi;

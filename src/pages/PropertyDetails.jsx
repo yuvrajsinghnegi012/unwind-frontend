@@ -23,6 +23,8 @@ const PropertyDetails = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { propertyId } = useParams();
+
+  const [bookingErrorMessage, setBookingErrorMessage] = useState(null);
   const [totalCost, setTotalCost] = useState(0);
   const [nights, setNights] = useState(0);
   const [date, setDate] = useState({
