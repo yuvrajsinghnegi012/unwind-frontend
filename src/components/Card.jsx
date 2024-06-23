@@ -34,7 +34,7 @@ const Card = ({ property }) => {
 
     return (
         isLoading ? <Loader /> : (
-        <div className="relative flex flex-col items-start">
+        <div className="relative flex flex-col items-start w-[20rem]">
             <Carousel className="h-[13rem] w-[20rem] rounded-lg mb-2">
                 {
                     property.images.map((item, i) => (

@@ -16,8 +16,14 @@ export const propertyApi = createApi({
         }),
         getSingleProperty: builder.query({
             query: (id) => `${id}`,
+        }),
+        getAllProperties: builder.query({
+            query: ()=>"",
+        }),
+        getCategoryProperties: builder.query({
+            query: (category) => `category/${category}`,
         })
     }),
 });
 
-export const { useGetSinglePropertyQuery, useNewPropertyMutation } = propertyApi;
+export const { useGetSinglePropertyQuery, useGetAllPropertiesQuery, useGetCategoryPropertiesQuery, useNewPropertyMutation } = propertyApi;

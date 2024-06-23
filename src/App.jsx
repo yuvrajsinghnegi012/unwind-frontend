@@ -29,7 +29,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="/category/:id" element={<Category />} />
+          <Route path="/category/:category" element={<Category />} />
           <Route path="/reservations" element={<Reservationlist />} />
           <Route path="/trips" element={<Triplist />} />
           <Route path="/properties" element={<Propertylist />} />

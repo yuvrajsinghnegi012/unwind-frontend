@@ -117,7 +117,7 @@ const HostProperty = () => {
     }
     // Making Final Form Data
     const newFormData = new FormData();
-    newFormData.append("category", category);
+    newFormData.append("category", category.toLowerCase());
     const loc = Object.values(propertyLocation).join(", ");
     newFormData.append("location", loc);
     for (const key in basicCount) {
