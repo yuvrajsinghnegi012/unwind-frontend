@@ -1,38 +1,31 @@
-import React from 'react';
 import Card from "../components/Card";
 import Loader from '../components/Loader';
 import { useSelector } from 'react-redux';
-import { useGetPropertiesListQuery } from '../redux/apis/userApi';
+import { useGetAllPropertiesQuery } from '../redux/apis/propertyApi';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
-const Propertylist = () => {
+
+const AllProperties = () => {
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.reducer);
 
-  // Checking user login or not
-  if (!user) {
-    toast.success("Login Required");
-    navigate("/login");
-    return;
-  }
-
-  //Fetching Properties
-  const { data, isLoading, error } = useGetPropertiesListQuery(user?._id);
+  //Fetching Category Properties
+  const { data, isLoading, error } = useGetAllPropertiesQuery();
   if (error) {
     console.log("error is: ", error);
     toast.error("Something went wrong");
     navigate("/");
   }
-  let properties = data?.properties || [];
-  properties = [...properties].reverse();
+  const properties = data?.properties ? [...data.properties].reverse() : [];
+
 
   return (
     isLoading ? <Loader /> : (
       <section className="mt-16">
         <div className='w-[90%] mx-auto '>
-          <h1 className="text-4xl font-bold text-sky-900">Property List (self hosted)</h1>
-          <div className="flex justify-center items-start gap-[1.75rem] mt-16 flex-wrap">
+          <h1 className="text-4xl font-bold text-sky-900">All Properties</h1>
+          <div className="flex justify-start items-start gap-[1.75rem] mt-16 flex-wrap">
             {
               properties?.length > 0 ? (
                 properties?.map((property, id) => (
@@ -40,7 +33,7 @@ const Propertylist = () => {
                 ))
               ) : (
                 <div>
-                  Add Properties to Wishlist
+                  No Properties Available
                 </div>
               )
             }
@@ -51,4 +44,4 @@ const Propertylist = () => {
   )
 }
 
-export default Propertylist;
+export default AllProperties;

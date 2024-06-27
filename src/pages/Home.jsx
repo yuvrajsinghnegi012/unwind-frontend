@@ -1,6 +1,6 @@
 import { useGetAllPropertiesQuery } from "@/redux/apis/propertyApi";
 import { useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Card from "../components/Card";
 import { categories } from "../constant";
 import toast from "react-hot-toast";
@@ -16,7 +16,7 @@ const Home = () => {
     toast.error("Something went wrong");
   }
   let properties = data?.properties || [];
-  properties = [...properties].reverse().slice(0, 10);
+  properties = [...properties].reverse().slice(0, 8);
 
   return (
     <div>
@@ -63,8 +63,8 @@ const Home = () => {
       </section>
 
       {/* PROPERTIES */}
-      <section className="flex flex-col justify-center mt-16 gap-12 w-[90%] mx-auto">
-        <h1 className="text-4xl font-bold text-sky-900">Latest Properties</h1>
+      <section className="mt-16 w-[90%] mx-auto">
+        <h1 className="text-4xl font-bold text-sky-900 mb-12">Latest Properties</h1>
         <div className="flex justify-center items-start gap-[1.75rem] flex-wrap">
           {
             properties?.map((property, id) => (
@@ -72,6 +72,7 @@ const Home = () => {
             ))
           }
         </div>
+        <Link to={"/properties"} className="text-right text-orange-600 w-full inline-block font-medium">View More <span className="font-bold text-[1.2rem]">&rarr;</span></Link>
       </section>
     </div>
   )

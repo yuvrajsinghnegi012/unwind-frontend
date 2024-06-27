@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import Footer from "./components/Footer";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 // import DnD from "./DnD";
 
 
@@ -13,6 +13,7 @@ const PropertyDetails = lazy(() => import("./pages/PropertyDetails"));
 const Category = lazy(() => import("./pages/Category"));
 const Wishlist = lazy(() => import("./pages/Wishlist"));
 const HostProperty = lazy(() => import("./pages/HostProperty"));
+const AllProperties = lazy(() => import("./pages/AllProperties"));
 const Propertylist = lazy(() => import("./pages/Propertylist"));
 const Triplist = lazy(() => import("./pages/Triplist"));
 const Checkout = lazy(() => import("./pages/Checkout"));
@@ -30,7 +31,8 @@ function App() {
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/category/:category" element={<Category />} />
           <Route path="/trips" element={<Triplist />} />
-          <Route path="/properties" element={<Propertylist />} />
+          <Route path="/property-list" element={<Propertylist />} />
+          <Route path="/properties" element={<AllProperties />} />
           <Route path="/host-property" element={<HostProperty />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/:userID/:propertyId" element={<PropertyDetails />} />
