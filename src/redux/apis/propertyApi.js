@@ -6,6 +6,7 @@ export const propertyApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: `${server}/api/v1/property`,
     }),
+    tagTypes: ["property"],
     endpoints: (builder)=>({
         newProperty: builder.mutation({
             query: ({formData, userId}) =>({
@@ -13,15 +14,19 @@ export const propertyApi = createApi({
                 method: 'POST',
                 body: formData,
             }),
+            invalidatesTags: ["property"],
         }),
         getSingleProperty: builder.query({
             query: (id) => `${id}`,
+            validatesTags: ["property"],
         }),
         getAllProperties: builder.query({
             query: ()=>"",
+            validatesTags: ["property"],
         }),
         getCategoryProperties: builder.query({
             query: (category) => `category/${category}`,
+            validatesTags: ["property"],
         })
     }),
 });

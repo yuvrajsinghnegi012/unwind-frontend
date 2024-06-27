@@ -14,7 +14,6 @@ const Category = lazy(() => import("./pages/Category"));
 const Wishlist = lazy(() => import("./pages/Wishlist"));
 const HostProperty = lazy(() => import("./pages/HostProperty"));
 const Propertylist = lazy(() => import("./pages/Propertylist"));
-const Reservationlist = lazy(() => import("./pages/Reservationlist"));
 const Triplist = lazy(() => import("./pages/Triplist"));
 const Checkout = lazy(() => import("./pages/Checkout"));
 const Loader = lazy(() => import("./components/Loader"));
@@ -30,7 +29,6 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/category/:category" element={<Category />} />
-          <Route path="/reservations" element={<Reservationlist />} />
           <Route path="/trips" element={<Triplist />} />
           <Route path="/properties" element={<Propertylist />} />
           <Route path="/host-property" element={<HostProperty />} />

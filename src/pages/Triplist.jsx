@@ -15,15 +15,14 @@ const Triplist = () => {
     navigate("/login");
     return;
   }
-  console.log("Calling API");
   const { data, isLoading, error } = useGetTriplistQuery(user?._id);
-  console.log(data);
   if (error) {
     console.log("error is: ", error);
     toast.error("Something went wrong");
     navigate("/");
   }
-  const trips = data?.triplist;
+ let trips = data?.triplist || [];
+  trips = [...trips].reverse();
 
   return (
     isLoading ? <Loader /> : (
@@ -34,7 +33,7 @@ const Triplist = () => {
             {
               trips?.length > 0 ? (
                 trips?.map((item, i) => {
-                  return <div key={i}>
+                  return <div key={i} >
                     <Card property={item.listing} />
                     <div className='bg-orange-500 text-white px-2 py-1 rounded-lg mt-2'>
                       {new Date(item.startDate).toLocaleDateString("en-US", {

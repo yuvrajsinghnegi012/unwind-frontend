@@ -1,7 +1,6 @@
-import React from 'react';
 import Card from "../components/Card";
 import Loader from '../components/Loader';
-import { useSelector } from 'react-redux';
+import { useSelector} from 'react-redux';
 import { useGetWishlistQuery } from '../redux/apis/userApi';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
@@ -11,7 +10,7 @@ const Wishlist = () => {
   const { user } = useSelector((state) => state.reducer);
 
   //Fetching Wishlist
-  if(!user){
+  if (!user) {
     toast.success("Login Required");
     navigate("/login");
     return;
@@ -22,7 +21,7 @@ const Wishlist = () => {
     toast.error("Something went wrong");
     navigate("/");
   }
-  const properties = data?.wishlist;
+  const properties = data?.wishlist ? [...data.wishlist].reverse() : [];
 
   return (
     isLoading ? <Loader /> : (
@@ -31,16 +30,16 @@ const Wishlist = () => {
           <h1 className="text-4xl font-bold text-sky-900">Your Wish List</h1>
           <div className="flex justify-center items-start gap-[1.75rem] mt-16 flex-wrap">
             {
-                properties?.length > 0 ? (
-                  properties?.map((property, id) => (
-                    <Card key={id} property={property} />
-                  ))
-                ) : (
-                  <div>
-                    Add Properties to Wishlist
-                  </div>
-                )
-              }
+              properties?.length > 0 ? (
+                properties?.map((property, id) => (
+                  <Card key={id} property={property} />
+                ))
+              ) : (
+                <div>
+                  Add Properties to Wishlist
+                </div>
+              )
+            }
           </div>
         </div>
       </section>

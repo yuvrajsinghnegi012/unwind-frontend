@@ -28,8 +28,8 @@ const PropertyDetails = () => {
   const [totalCost, setTotalCost] = useState(0);
   const [nights, setNights] = useState(0);
   const [date, setDate] = useState({
-    from: new Date(2022, 0, 20),
-    to: addDays(new Date(2022, 0, 20), 20),
+    from: new Date(),
+    to: addDays(new Date(), 5),
   });
   const { user } = useSelector((state) => state.reducer);
 

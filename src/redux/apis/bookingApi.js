@@ -7,6 +7,7 @@ export const bookingApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: `${server}/api/v1/booking/`,
     }),
+    tagTypes: ["user"],
     endpoints: (builder)=>({
         newBooking: builder.mutation({
             query: (formData)=>({
@@ -14,6 +15,7 @@ export const bookingApi = createApi({
                 method: 'POST',
                 body: formData,
             }),
+            invalidatesTags: ["user"],
         }),
     }),
 });

@@ -134,7 +134,7 @@ const Register = () => {
                 <p className='text-red-600 text-sm -mt-2'>{errorMessage || `Something went wrong`}</p>
               )
             }
-            <p className='text-[.9rem]'>Already have an account? <button type='button' className='text-orange-500 cursor-pointer'>Sign in here!</button></p>
+            <p className='text-[.9rem]'>Already have an account? <button type='button' className='text-orange-500 cursor-pointer' onClick={()=>navigate("/login")}>Sign in here!</button></p>
           </form>
         </div>
 

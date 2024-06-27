@@ -7,7 +7,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 const Category = () => {
 const navigate = useNavigate();
-const { user } = useSelector((state) => state.reducer);
 const { category } = useParams();
 
   //Fetching Category Properties
@@ -17,7 +16,8 @@ const { category } = useParams();
     toast.error("Something went wrong");
     navigate("/");
   }
-  const properties = data?.properties;
+  let properties = data?.properties || [];
+  properties = [...properties].reverse();
 
   return (
     isLoading ? <Loader /> : (

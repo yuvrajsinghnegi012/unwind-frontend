@@ -64,7 +64,6 @@ const Header = () => {
                       <MenubarRadioItem value="trip" onClick={() => { navigate("/trips") }} className="cursor-pointer">Trip List</MenubarRadioItem>
                       <MenubarRadioItem value="wish" onClick={() => { navigate("/wishlist") }} className="cursor-pointer">Wish List</MenubarRadioItem>
                       <MenubarRadioItem value="property" onClick={() => { navigate("/properties") }} className="cursor-pointer">Property List</MenubarRadioItem>
-                      <MenubarRadioItem value="reservation" onClick={() => { navigate("/reservations") }} className="cursor-pointer">Reservation List</MenubarRadioItem>
                       <MenubarRadioItem value="host" onClick={() => { navigate("/host-property") }} className="cursor-pointer">Become A Host</MenubarRadioItem>
                     </MenubarRadioGroup>
                     <MenubarSeparator />

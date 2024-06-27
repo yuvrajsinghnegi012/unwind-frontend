@@ -25,7 +25,8 @@ const Propertylist = () => {
     toast.error("Something went wrong");
     navigate("/");
   }
-  const properties = data?.properties;
+  let properties = data?.properties || [];
+  properties = [...properties].reverse();
 
   return (
     isLoading ? <Loader /> : (
