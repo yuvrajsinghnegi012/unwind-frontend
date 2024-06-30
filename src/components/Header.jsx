@@ -22,21 +22,26 @@ import { useState } from "react";
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user } = useSelector((state)=>state.reducer);
-  const [logout, {error}] = useLogoutMutation();
+  const { user } = useSelector((state) => state.reducer);
+  const [logout, { error }] = useLogoutMutation();
   const [query, setQuery] = useState("");
 
   const logoutHandler = async () => {
     await logout();
-    if(error){
+    if (error) {
       toast.error("Something went wrong");
       console.log(error);
       return;
     }
-    else{
+    else {
       dispatch(setUser(null));
       navigate("/");
       toast.success("Logout Successful");
+    }
+  };
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      query ? navigate(`/search?search=${query}`) : toast.error("No query to search")
     }
   };
 
@@ -45,12 +50,14 @@ const Header = () => {
       <div className="px-8 py-3 flex gap-4 justify-between items-center">
         <img src={logo} className="h-16 cursor-pointer" alt="Logo" onClick={() => navigate("/")} />
         <div className="flex items-center justify-between px-4 py-2 rounded-full border-2 border-slate-400 lg:w-[20rem]">
-          <input type="text" 
-          name="query" 
-          id="query"
-          placeholder="Mountains...." 
-          className="w-[60%] md:w-full outline-none" 
-          onChange={(e)=>setQuery(e.target.value)}/>
+          <input type="text"
+            name="query"
+            id="query"
+            placeholder="Search by name, location, etc"
+            className="w-[60%] md:w-full outline-none"
+            onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={handleKeyPress}
+          />
           <IoMdSearch className="text-orange-600 font-bold text-2xl cursor-pointer" onClick={() => query ? navigate(`/search?search=${query}`) : toast.error("No query to search")} />
         </div>
         <div className="flex items-center gap-2">

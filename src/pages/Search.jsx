@@ -11,7 +11,7 @@ const Search = () => {
   const search = searchParams.get("search");
 
   //Fetching Properties
-  const { data, isLoading, error } = useGetSearchPropertiesQuery({search});
+  const { data, isLoading, error } = useGetSearchPropertiesQuery({search: search.trim()});
   if (error) {
     console.log("error is: ", error);
     toast.error("Something went wrong");
