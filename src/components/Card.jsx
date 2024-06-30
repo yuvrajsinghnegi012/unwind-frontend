@@ -4,7 +4,6 @@ import { FaHeart, FaRegHeart } from "../constant";
 import { useToggleWishlistPropertyMutation } from "../redux/apis/userApi";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../redux/slices/user";
-import { useState } from "react";
 import Loader from "./Loader";
 import toast from "react-hot-toast";
 
@@ -13,7 +12,6 @@ const Card = ({ property }) => {
     const navigate = useNavigate();
     const [toggleWishlist, { isLoading, error }] = useToggleWishlistPropertyMutation();
     const { user } = useSelector((state) => state.reducer);
-    // const [inWishlist, setInWishlist] = useState(user?.wishList?.includes(property._id) || false);
 
     const wishlistHandler = async () => {
         if (!user) {
@@ -48,7 +46,7 @@ const Card = ({ property }) => {
             <div className="flex flex-col items-start cursor-pointer" onClick={() => navigate(`/property-details/${property._id}`)}>
                 <h2 className="font-bold">{property.location}</h2>
                 <p>{property.label}</p>
-                <p>{property.highlight}</p>
+                <p>{property.name}</p>
                 <p><span className="font-bold">₹{property.price}</span> per night</p>
             </div>
             <div className="absolute z-10 top-2 right-2">

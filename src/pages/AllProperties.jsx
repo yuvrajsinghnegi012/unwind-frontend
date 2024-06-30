@@ -1,14 +1,11 @@
 import Card from "../components/Card";
 import Loader from '../components/Loader';
-import { useSelector } from 'react-redux';
 import { useGetAllPropertiesQuery } from '../redux/apis/propertyApi';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
-
 const AllProperties = () => {
   const navigate = useNavigate();
-  const { user } = useSelector((state) => state.reducer);
 
   //Fetching Category Properties
   const { data, isLoading, error } = useGetAllPropertiesQuery();
@@ -18,7 +15,6 @@ const AllProperties = () => {
     navigate("/");
   }
   const properties = data?.properties ? [...data.properties].reverse() : [];
-
 
   return (
     isLoading ? <Loader /> : (

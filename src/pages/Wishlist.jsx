@@ -11,8 +11,8 @@ const Wishlist = () => {
 
   //Fetching Wishlist
   if (!user) {
-    toast.success("Login Required");
-    navigate("/login");
+    toast.error("Login Required");
+    setTimeout(()=>navigate("/login"), 100);
     return;
   }
   const { data, isLoading, error } = useGetWishlistQuery(user?._id);

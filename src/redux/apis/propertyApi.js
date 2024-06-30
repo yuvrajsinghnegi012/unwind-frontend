@@ -24,11 +24,23 @@ export const propertyApi = createApi({
             query: ()=>"",
             validatesTags: ["property"],
         }),
+        getSearchProperties: builder.query({
+            query: ({search, sort, category, minPrice, maxPrice})=>{
+                let base = `all/search?`;
+                if(search) base += `search=${search}&`
+                if(sort) base += `sort=${sort}&`
+                if(category) base += `category=${category}&`
+                if(minPrice) base += `minPrice=${minPrice}&`
+                if(maxPrice) base += `maxPrice=${maxPrice}&`
+                return base;
+            },
+            validatesTags: ["property"],
+        }),
         getCategoryProperties: builder.query({
             query: (category) => `category/${category}`,
             validatesTags: ["property"],
-        })
+        }),
     }),
 });
 
-export const { useGetSinglePropertyQuery, useGetAllPropertiesQuery, useGetCategoryPropertiesQuery, useNewPropertyMutation } = propertyApi;
+export const { useGetSinglePropertyQuery, useGetAllPropertiesQuery, useGetCategoryPropertiesQuery, useGetSearchPropertiesQuery, useNewPropertyMutation } = propertyApi;
