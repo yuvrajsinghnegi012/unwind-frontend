@@ -44,14 +44,13 @@ const Card = ({ property }) => {
                 }
             </Carousel>
             <div className="flex flex-col items-start cursor-pointer" onClick={() => navigate(`/property-details/${property._id}`)}>
-                <h2 className="font-bold">{property.location}</h2>
-                <p>{property.label}</p>
-                <p>{property.name}</p>
+                <h2 className="font-bold">{property.name}</h2>
+                <p className="font-semibold ">{property.highlight}</p>
+                <p>{property.location}</p>
                 <p><span className="font-bold">₹{property.price}</span> per night</p>
             </div>
             <div className="absolute z-10 top-2 right-2">
                 {
-                    // inWishlist ? <FaHeart className="text-red-600 text-xl cursor-pointer" onClick={wishlistHandler} /> : <FaRegHeart className="text-red-600 text-xl cursor-pointer" onClick={wishlistHandler} />
                     (user?.wishList?.includes(property._id) || false) ? <FaHeart className="text-red-600 text-xl cursor-pointer" onClick={wishlistHandler} /> : <FaRegHeart className="text-red-600 text-xl cursor-pointer" onClick={wishlistHandler} />
                 }
             </div>

@@ -20,7 +20,7 @@ const Search = () => {
   const properties = data?.properties || [];
 
   return (
-    // isLoading ? <Loader /> : (
+    isLoading ? <Loader /> : (
       <section className="mt-16">
         <div className='w-[90%] mx-auto '>
           <h1 className="text-4xl font-bold text-sky-900">Search Results</h1>
@@ -40,7 +40,7 @@ const Search = () => {
         </div>
       </section>
     )
-  // )
+  )
 }
 
 export default Search
