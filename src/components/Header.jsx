@@ -41,7 +41,7 @@ const Header = () => {
   };
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
-      query ? navigate(`/search?search=${query}`) : toast.error("No query to search")
+      query ? navigate(`/search?search=${query}`) : toast.error("No query to search");
     }
   };
 

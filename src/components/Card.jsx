@@ -33,30 +33,30 @@ const Card = ({ property }) => {
 
     return (
         isLoading ? <Loader /> : (
-        <div className="relative flex flex-col items-start w-[20rem]">
-            <Carousel className="h-[13rem] w-[20rem] rounded-lg mb-2">
-                {
-                    property.images.map((item, i) => (
-                        <div key={i} className="">
-                            <img src={item} className="w-full h-[13rem] object-cover object-center rounded-lg" alt={item.label} />
-                        </div>
-                    ))
-                }
-            </Carousel>
-            <div className="flex flex-col items-start cursor-pointer" onClick={() => navigate(`/property-details/${property._id}`)}>
-                <h2 className="font-bold">{property.name}</h2>
-                <p className="font-semibold ">{property.highlight}</p>
-                <p>{property.location}</p>
-                <p><span className="font-bold">₹{property.price}</span> per night</p>
+            <div className="h-full relative flex flex-col items-start w-[20rem]">
+                <Carousel className="h-[13rem] w-[20rem] rounded-lg mb-2">
+                    {
+                        property.images.map((item, i) => (
+                            <div key={i} className="">
+                                <img src={item} className="w-full h-[13rem] object-cover object-center rounded-lg" alt={item.label} />
+                            </div>
+                        ))
+                    }
+                </Carousel>
+                <div className="flex flex-col items-start cursor-pointer" onClick={() => navigate(`/property-details/${property._id}`)}>
+                    <h2 className="font-bold">{property.name}</h2>
+                    <p className="font-semibold ">{property.highlight}</p>
+                    <p>{property.location}</p>
+                    <p><span className="font-bold">₹{property.price}</span> per night</p>
+                </div>
+                <div className="absolute z-10 top-2 right-2">
+                    {
+                        (user?.wishList?.includes(property._id) || false) ? <FaHeart className="text-red-600 text-xl cursor-pointer" onClick={wishlistHandler} /> : <FaRegHeart className="text-red-600 text-xl cursor-pointer" onClick={wishlistHandler} />
+                    }
+                </div>
             </div>
-            <div className="absolute z-10 top-2 right-2">
-                {
-                    (user?.wishList?.includes(property._id) || false) ? <FaHeart className="text-red-600 text-xl cursor-pointer" onClick={wishlistHandler} /> : <FaRegHeart className="text-red-600 text-xl cursor-pointer" onClick={wishlistHandler} />
-                }
-            </div>
-        </div>
+        )
     )
-)
 }
 
 export default Card;
