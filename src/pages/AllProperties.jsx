@@ -27,10 +27,10 @@ const AllProperties = () => {
   return (
     isLoading ? <Loader /> : (
       <section className="mt-16">
-        <div className='w-[90%] mx-auto '>
-          <h1 className="text-4xl font-bold text-sky-900">All Properties</h1>
-          <div className="flex justify-between items-center mt-8">
-            <div className="flex text-center gap-[2rem] items-center">
+        <div className='w-[90%] mx-auto text-sm md:text-base'>
+          <h1 className="text-[1.65rem] sm:text-3xl md:text-4xl font-bold text-sky-900">All Properties</h1>
+          <div className="flex justify-between items-center mt-8 flex-wrap">
+            <div className="flex text-center gap-2 md:gap-[2rem] justify-center">
               {/* Category */}
               <select
                 name='category'
@@ -61,7 +61,7 @@ const AllProperties = () => {
                 onChange={(e) => setSearch(e.target.value)} />
             </div>
           </div>
-          <div className="flex justify-start items-start gap-[1.75rem] mt-16 flex-wrap">
+          <div className="flex justify-center md:justify-start items-start gap-[1.75rem] mt-4 md:mt-16 flex-wrap">
             {
               properties?.length > 0 ? (
                 properties?.map((property, id) => (

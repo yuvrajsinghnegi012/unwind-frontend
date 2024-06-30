@@ -42,7 +42,7 @@ const Login = () => {
   }
 
   return (
-    <section className='h-[90vh] flex justify-center items-center'>
+    <section className='h-[90vh] flex justify-center items-center text-[.9rem] md:text-base'>
       <div className='w-[80%] mx-auto flex items-center justify-center gap-32'>
         <div className='w-[20rem]'>
           <h1 className="text-4xl font-semibold mb-1">WELCOME BACK</h1>
@@ -93,7 +93,7 @@ const Login = () => {
           </form>
         </div>
 
-        <div className='max-w-[50%]'>
+        <div className='max-w-[50%] hidden md:block'>
           <img src={loginPhoto} alt="Login Image" className='h-[32rem]' />
         </div>
       </div>

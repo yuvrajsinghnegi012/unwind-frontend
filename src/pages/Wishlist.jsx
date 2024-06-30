@@ -26,8 +26,8 @@ const Wishlist = () => {
   return (
     isLoading ? <Loader /> : (
       <section className="mt-16">
-        <div className='w-[90%] mx-auto '>
-          <h1 className="text-4xl font-bold text-sky-900">Your Wish List</h1>
+        <div className='w-[90%] mx-auto text-[.92rem] md:text-base'>
+          <h1 className="text-[1.65rem] sm:text-3xl md:text-4xl font-bold text-sky-900">Your Wish List</h1>
           <div className="flex justify-center items-start gap-[1.75rem] mt-16 flex-wrap">
             {
               properties?.length > 0 ? (

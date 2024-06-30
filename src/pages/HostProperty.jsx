@@ -151,17 +151,17 @@ const HostProperty = () => {
 
   return (
     <section className="mt-8">
-      <div className='w-[82%] mx-auto flex flex-col items-start gap-4'>
+      <div className='w-[82%] mx-auto flex flex-col items-start gap-4 text-[.92rem] md:text-base'>
         <div className='flex justify-between items-center w-full'>
-          <h1 className="text-4xl font-bold text-sky-900">Host Property</h1>
+          <h1 className="text-[1.65rem] sm:text-3xl md:text-4xl font-bold text-sky-900">Host Property</h1>
         </div>
 
         {/* Property Category */}
-        <div className="mt-12">
+        <div className="mt-12 w-[100%]">
           <h2 className='text-xl font-bold text-orange-500'>Step 1: Tell us about your place</h2>
           <div className='mt-2 h-[2px] w-full bg-slate-500' />
 
-          <div className='mt-8 flex flex-col gap-8'>
+          <div className='mt-8 flex flex-col flex-wrap gap-8'>
             {/* Category */}
             <div>
               <p className='mb-6 font-semibold'>Which of these categories best describes your place?</p>

@@ -47,21 +47,21 @@ const Header = () => {
 
   return (
     <header>
-      <div className="px-8 py-3 flex gap-4 justify-between items-center">
-        <img src={logo} className="h-16 cursor-pointer" alt="Logo" onClick={() => navigate("/")} />
-        <div className="flex items-center justify-between px-4 py-2 rounded-full border-2 border-slate-400 lg:w-[20rem]">
+      <div className="px-2 md:px-8 py-3 flex gap-4 justify-between items-center">
+        <img src={logo} className="h-12 sm:h-16 cursor-pointer" alt="Logo" onClick={() => navigate("/")} />
+        <div className="flex items-center justify-between px-3 py-1 sm:px-4 sm:py-2 rounded-full border-[2px] md:border-2 border-slate-400 lg:w-[20rem]">
           <input type="text"
             name="query"
             id="query"
             placeholder="Search by name, location, etc"
-            className="w-[60%] md:w-full outline-none"
+            className="w-[60%] md:w-full outline-none text-sm md:base"
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyPress}
           />
-          <IoMdSearch className="text-orange-600 font-bold text-2xl cursor-pointer" onClick={() => query ? navigate(`/search?search=${query}`) : toast.error("No query to search")} />
+          <IoMdSearch className="text-orange-600 font-bold text-xl sm:text-2xl cursor-pointer" onClick={() => query ? navigate(`/search?search=${query}`) : toast.error("No query to search")} />
         </div>
         <div className="flex items-center gap-2">
-          <button className="text-slate-800 font-medium" onClick={() => navigate("/host-property")}>Become A Host</button>
+          <button className={`text-slate-800 font-medium hidden md:block ${user ? "" : "hidden"} `} onClick={() => navigate("/host-property")}>Become A Host</button>
           {
             user ? (
               <Menubar className="border-slate-500">

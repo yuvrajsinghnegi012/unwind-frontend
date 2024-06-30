@@ -8,15 +8,15 @@ const Footer = () => {
   const navigate = useNavigate();
 
   return (
-    <div className=''>
-      <div className='w-[95%] pt-44 pb-6 mx-auto flex justify-between items-center'>
-        <img src={logo} alt="Logo" className="h-20 w-auto" onClick={() => navigate("/")} />
-        <div className="">
+    <div className='text-sm sm:text-base'>
+      <div className='w-[95%] pt-44 pb-6 mx-auto flex flex-col gap-6 md:gap-0 justify-center items-center md:flex-row md:justify-between md:items-center'>
+        <img src={logo} alt="Logo" className="h-16 md:h-20 w-auto" onClick={() => navigate("/")} />
+        <div className="flex flex-col justify-center items-center">
           <h2 className='font-bold text-lg mb-3'>Useful Links</h2>
           <p className="cursor-pointer" onClick={() => navigate("/wishlist")}>WishList</p>
           <p className="cursor-pointer">Terms & Conditions</p>
         </div>
-        <div>
+        <div className="flex flex-col justify-center items-center">
           <h2 className='font-bold text-lg mb-3'>Contact</h2>
           <div className="flex gap-3 items-center">
             <FaPhone />
