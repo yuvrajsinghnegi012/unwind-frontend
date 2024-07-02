@@ -1,13 +1,25 @@
-import { useGetAllPropertiesQuery } from "@/redux/apis/propertyApi";
-import { useSelector } from "react-redux";
-import { useNavigate, Link } from "react-router-dom";
+import { useGetAllPropertiesQuery } from "../redux/apis/propertyApi";
+import { useState } from "react";
+import toast from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
 import Card from "../components/Card";
 import { categories } from "../constant";
-import toast from "react-hot-toast";
+import { bannerImages } from "../constant";
+import {
+  MdKeyboardArrowRight,
+  MdKeyboardArrowLeft
+} from "../constant";
 
 const Home = () => {
   const navigate = useNavigate();
-  const { user } = useSelector((state) => state.reducer);
+  const [bannerImageIndex, setBannerImageIndex] = useState(0);
+  // Updating banner images index
+  const prevImage = () => {
+    (bannerImageIndex === 0) ? setBannerImageIndex(bannerImages.length - 1) : setBannerImageIndex(bannerImageIndex - 1);
+  }
+  const nextImage = () => {
+    (bannerImageIndex === (bannerImages.length - 1)) ? setBannerImageIndex(0) : setBannerImageIndex(bannerImageIndex + 1);
+  }
 
   //Fetching Category Properties
   const { data, isLoading, error } = useGetAllPropertiesQuery();
@@ -21,8 +33,16 @@ const Home = () => {
   return (
     <div>
       {/* HERO SECTION */}
-      <section className={`relative min-h-screen bg-cover bg-center bg-[url("../assets/home.jpg")]`}>
-        <div className="absolute inset-0 bg-black opacity-50 mix-blend-overlay"></div>
+      <section className={`relative min-h-screen bg-cover bg-center `} style={{ backgroundImage: `url(${bannerImages[bannerImageIndex]})` }} loading="lazy">
+        <div className="absolute left-1 top-[50%] translate-y-[-50%] cursor-pointer px-1 py-6 bg-gray-100 z-10 " onClick={prevImage}><MdKeyboardArrowLeft className="inline-block" /></div>
+        <div className="absolute right-1 top-[50%] translate-y-[-50%] cursor-pointer px-1 py-6 bg-gray-100 z-10 " onClick={nextImage}><MdKeyboardArrowRight className="inline-block" /></div>
+        <div className="absolute left-[50%] bottom-4 translate-x-[-50%] flex gap-1 justify-center p-2 z-10">
+          {
+            [...Array(bannerImages.length)].map((_, i) => (
+              <div key={i} className={`h-3 w-3 rounded-full cursor-pointer ${i === bannerImageIndex ? "bg-white " : "bg-gray-400 "} transition-all duration-100`} onClick={() => { setBannerImageIndex(i) }} />
+            ))
+          }
+        </div>
         <div className="container mx-auto flex items-center justify-center h-full">
           <h1 className="text-[1.5rem] sm:text-[1.9rem] md:text-[2.2rem] lg:text-[2.4rem] font-bold mt-4 text-white text-center">
             Welcome Home! Anywhere you roam<br />
@@ -54,7 +74,7 @@ const Home = () => {
           ))}
         </div>
       </section>
-      
+
       {/* ALL CATEGORIES */}
       <section className="flex flex-col justify-center mt-16 gap-4 md:gap-8 w-[80%] mx-auto">
         <h1 className="text-[1.65rem] sm:text-3xl md:text-4xl font-bold text-sky-900">All Categories</h1>

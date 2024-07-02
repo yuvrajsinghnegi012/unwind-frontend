@@ -117,10 +117,10 @@ const PropertyDetails = () => {
 
   return (
     isPropertyLoading ? (<Loader />) : (
-      <section className="mt-8">
+      <section className="mt-8 text-sm md:text-[.94rem]">
         <div className='w-[82%] mx-auto flex flex-col items-start gap-4'>
           <div className='flex justify-between items-center w-full'>
-            <h1 className="text-4xl font-bold text-sky-900">{property.name}</h1>
+            <h1 className="text-[1.65rem] sm:text-3xl md:text-4xl font-bold text-sky-900">{property.name}</h1>
             <div className='flex gap-2 items-center'>
               {
                 inWishlist ? <FaRegHeart className='cursor-pointer transition-all duration-300' onClick={wishlistHandler} /> : <FaHeart className='cursor-pointer transition-all duration-300' onClick={wishlistHandler} />
@@ -129,10 +129,10 @@ const PropertyDetails = () => {
             </div>
           </div>
           {/* Property Images */}
-          <div className="flex justify-start items-center gap-2 flex-wrap">
+          <div className="flex justify-center items-center gap-2 flex-wrap">
             {
               property.images.map((image, i) => (
-                <div key={i} className='h-48 w-72'>
+                <div key={i} className='h-44 w-68'>
                   <img src={image} alt="site image" className='h-full w-full object-cover' />
                 </div>
               ))
@@ -140,7 +140,7 @@ const PropertyDetails = () => {
           </div>
 
           <h3 className='text-lg font-bold'>An entire place in {property.location}</h3>
-          <p>{property.guests} guests - {property.bedroom} bedroom - {property.bed} bed - {property.bath}</p>
+          <p>{property.guests} guests - {property.bedrooms} bedroom - {property.beds} bed - {property.baths} bathrooms</p>
 
           <div className='h-[1px] w-full bg-slate-500' />
 
@@ -165,7 +165,7 @@ const PropertyDetails = () => {
           <div className='h-[1px] w-full bg-slate-500' />
 
           {/* What this place offers (falicities)  - Calender*/}
-          <div className='flex justify-between w-full'>
+          <div className='flex flex-col md:flex-row gap-6 md:gap-0 justify-between w-full'>
             <div className=''>
               <h3 className='text-lg font-semibold mb-6'>What this place offers</h3>
               <div className='grid grid-cols-2 gap-y-4 gap-x-8'>
@@ -223,8 +223,8 @@ const PropertyDetails = () => {
                 </div>
               </div>
               <div className="mt-3 flex flex-col justify-center gap-1">
-                <p className="text-2xl font-bold">₹{property.price} x{nights} nights</p>
-                <p className="text-2xl font-bold">Total Price: ₹{property.price * nights}</p>
+                <p className="text-lg sm:text-xl md:text-2xl font-bold">₹{property.price} x{nights} nights</p>
+                <p className="text-lg sm:text-xl md:text-2xl font-bold">Total Price: ₹{property.price * nights}</p>
                 <p>Start Date: {date?.from ? format(date.from, "dd-MMMM-y") : "-"}</p>
                 <p>Start Date: {date?.to ? format(date.to, "dd-MMMM-y") : "-"}</p>
                 <button className='text-white w-full rounded-lg text-center bg-orange-500 py-2 mt-3 px-4' disabled={isBookingLoading} onClick={bookingHandler}>

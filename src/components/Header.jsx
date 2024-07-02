@@ -61,7 +61,7 @@ const Header = () => {
           <IoMdSearch className="text-orange-600 font-bold text-xl sm:text-2xl cursor-pointer" onClick={() => query ? navigate(`/search?search=${query}`) : toast.error("No query to search")} />
         </div>
         <div className="flex items-center gap-2">
-          <button className={`text-slate-800 font-medium hidden md:block ${user ? "" : "hidden"} `} onClick={() => navigate("/host-property")}>Become A Host</button>
+          <button className={`text-slate-800 font-medium hidden md:block`} onClick={() => user ? navigate(`/host-property`) : toast.error("Login Required")}>Become A Host</button>
           {
             user ? (
               <Menubar className="border-slate-500">

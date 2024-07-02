@@ -1,16 +1,26 @@
 import logo from "../assets/logo.png";
 import loginPhoto from "../assets/loginPhoto.png";
 
-import { TbBeach, TbMountain, TbPool } from "react-icons/tb";
 import {
-    GiBarn,
-    GiBoatFishing,
-    GiCactus,
-    GiCastle,
-    GiCaveEntrance,
-    GiForestCamp,
+  TbBeach,
+  TbMountain,
+  TbPool,
+  TbIroning3,
+} from "react-icons/tb";
+import {
+  GiBarn,
+  GiBoatFishing,
+  GiCactus,
+  GiCastle,
+  GiCaveEntrance,
+  GiForestCamp,
   GiIsland,
   GiWindmill,
+  GiHeatHaze,
+  GiCctvCamera,
+  GiBarbecue,
+  GiToaster,
+  GiCampfire,
 } from "react-icons/gi";
 import {
   FaSkiing,
@@ -19,8 +29,15 @@ import {
   FaFireExtinguisher,
   FaUmbrellaBeach,
   FaKey,
+  FaRegHeart,
 } from "react-icons/fa";
-import { FaHouseUser, FaPeopleRoof, FaKitchenSet } from "react-icons/fa6";
+import {
+  FaHouseUser,
+  FaPeopleRoof,
+  FaKitchenSet,
+  FaPhone,
+  FaHeart,
+} from "react-icons/fa6";
 import {
   BiSolidWasher,
   BiSolidDryer,
@@ -28,34 +45,42 @@ import {
   BiWifi,
   BiSolidFridge,
   BiWorld,
+  BiSolidMessageAltCheck,
+  BiTrash,
 } from "react-icons/bi";
-import { BsSnow, BsFillDoorOpenFill, BsPersonWorkspace } from "react-icons/bs";
-import { IoDiamond } from "react-icons/io5";
-import { MdOutlineVilla, MdMicrowave, MdBalcony, MdYard, MdPets } from "react-icons/md";
+import {
+  BsSnow,
+  BsFillDoorOpenFill,
+  BsPersonWorkspace,
+} from "react-icons/bs";
+import {
+  MdOutlineVilla,
+  MdMicrowave,
+  MdBalcony,
+  MdYard,
+  MdPets,
+  MdAddCircleOutline,
+  MdKeyboardArrowRight,
+  MdKeyboardArrowLeft,
+} from "react-icons/md";
 import {
   PiBathtubFill,
   PiCoatHangerFill,
   PiTelevisionFill,
 } from "react-icons/pi";
-import { TbIroning3 } from "react-icons/tb";
-import {
-  GiHeatHaze,
-  GiCctvCamera,
-  GiBarbecue,
-  GiToaster,
-  GiCampfire,
-} from "react-icons/gi";
+import { IoDiamond } from "react-icons/io5";
 import { AiFillCar } from "react-icons/ai";
-import { BiSolidMessageAltCheck } from "react-icons/bi";
-import { FaPhone } from "react-icons/fa6";
-import { FaRegHeart } from "react-icons/fa";
-import { FaHeart } from "react-icons/fa6";
 import { FiMinusCircle } from "react-icons/fi";
-import { MdAddCircleOutline } from "react-icons/md";
 import { IoIosImages } from "react-icons/io";
-import { BiTrash } from "react-icons/bi";
 
 import payment from "../assets/payment.png";
+import bannerImg1 from "../assets/homepage/1.jpg";
+import bannerImg2 from "../assets/homepage/2.jpg";
+import bannerImg3 from "../assets/homepage/3.jpg";
+import bannerImg4 from "../assets/homepage/4.jpg";
+import bannerImg5 from "../assets/homepage/5.jpg";
+
+export const bannerImages = [bannerImg1, bannerImg2, bannerImg3, bannerImg4, bannerImg5];
 
 export const categories = [
   {
@@ -65,7 +90,7 @@ export const categories = [
   {
     img: "../assets/beach_cat.jpg",
     label: "Beachfront",
-    icon: TbBeach ,
+    icon: TbBeach,
     description: "This property is close to the beach!",
   },
   {
@@ -313,7 +338,10 @@ export const facilities = [
 ];
 
 export { logo, payment, loginPhoto };
-export { BiSolidMessageAltCheck, FaPhone, FaRegHeart, FaHeart, FiMinusCircle, MdAddCircleOutline, IoIosImages, BiTrash };
+export {
+  BiSolidMessageAltCheck, FaPhone, FaRegHeart, FaHeart, FiMinusCircle, MdAddCircleOutline, IoIosImages, BiTrash, MdKeyboardArrowRight,
+  MdKeyboardArrowLeft
+};
 
 
 
