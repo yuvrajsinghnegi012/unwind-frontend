@@ -1,6 +1,5 @@
 import Card from "../components/Card";
 import Loader from '../components/Loader';
-import { useSelector } from 'react-redux';
 import { useGetCategoryPropertiesQuery } from '../redux/apis/propertyApi';
 import toast from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom';

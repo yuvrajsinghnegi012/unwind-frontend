@@ -4,7 +4,7 @@ import { FiMinusCircle, MdAddCircleOutline, categories, facilities, IoIosImages 
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import { useNewPropertyMutation } from '@/redux/apis/propertyApi';
+import { useNewPropertyMutation } from '../redux/apis/propertyApi';
 import { setUser } from '../redux/slices/user';
 
 const HostProperty = () => {

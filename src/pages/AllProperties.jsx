@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import Card from "../components/Card";
 import Loader from '../components/Loader';
 import { useGetSearchPropertiesQuery } from '../redux/apis/propertyApi';
 import { categories } from "../constant";
-import 'rc-slider/assets/index.css';
 import RangeSlider from "../components/RangeSlider";
 
 const AllProperties = () => {

@@ -11,12 +11,12 @@ import {
   MenubarRadioItem,
   MenubarSeparator,
   MenubarTrigger,
-} from "@/components/ui/menubar";
+} from "./ui/menubar";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useLogoutMutation } from "../redux/apis/userApi";
 import toast from "react-hot-toast";
-import { setUser } from "@/redux/slices/user";
+import { setUser } from "../redux/slices/user";
 import { useState } from "react";
 
 const Header = () => {

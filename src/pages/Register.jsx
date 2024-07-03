@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { loginPhoto } from '../constant';
 import { useSignUpMutation } from '../redux/apis/userApi';
-import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
