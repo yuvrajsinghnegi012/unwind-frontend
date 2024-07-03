@@ -61,7 +61,7 @@ const Register = () => {
 
 
   return (
-    <section className='md:h-[88vh] flex justify-center items-center text-[.9rem] md:text-base'>
+    <section className='md:h-[90h] flex justify-center items-center text-[.9rem] md:text-base'>
       <div className='w-[80%] mx-auto flex items-center justify-center gap-32'>
         <div className='w-[20rem]'>
           <h1 className="text-4xl font-semibold mb-1">Register</h1>
@@ -133,7 +133,7 @@ const Register = () => {
                 <p className='text-red-600 text-sm -mt-2'>{errorMessage || `Something went wrong`}</p>
               )
             }
-            <p className='text-[.9rem]'>Already have an account? <button type='button' className='text-orange-500 cursor-pointer' onClick={()=>navigate("/login")}>Sign in here!</button></p>
+            <p className='text-[.9rem]'>Already have an account? OR login with demo account <button type='button' className='text-orange-500 cursor-pointer' onClick={()=>navigate("/login")}>Sign in here!</button></p>
           </form>
         </div>
 

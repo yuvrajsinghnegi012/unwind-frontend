@@ -34,8 +34,8 @@ const Home = () => {
     <div>
       {/* HERO SECTION */}
       <section className={`relative min-h-screen bg-cover bg-center `} style={{ backgroundImage: `url(${bannerImages[bannerImageIndex]})` }} loading="lazy">
-        <div className="absolute left-1 top-[50%] translate-y-[-50%] cursor-pointer px-1 py-6 bg-gray-100 z-10 " onClick={prevImage}><MdKeyboardArrowLeft className="inline-block" /></div>
-        <div className="absolute right-1 top-[50%] translate-y-[-50%] cursor-pointer px-1 py-6 bg-gray-100 z-10 " onClick={nextImage}><MdKeyboardArrowRight className="inline-block" /></div>
+        <div className="absolute left-1 top-[50%] translate-y-[-50%] cursor-pointer px-1 py-6 bg-gray-100 hover:bg-gray-300 z-10 " onClick={prevImage}><MdKeyboardArrowLeft className="inline-block" /></div>
+        <div className="absolute right-1 top-[50%] translate-y-[-50%] cursor-pointer px-1 py-6 bg-gray-100 hover:bg-gray-300 z-10 " onClick={nextImage}><MdKeyboardArrowRight className="inline-block" /></div>
         <div className="absolute left-[50%] bottom-4 translate-x-[-50%] flex gap-1 justify-center p-2 z-10">
           {
             [...Array(bannerImages.length)].map((_, i) => (

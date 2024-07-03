@@ -11,7 +11,7 @@ const Card = ({ property }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [toggleWishlist, { isLoading, error }] = useToggleWishlistPropertyMutation();
-    const { user } = useSelector((state) => state.reducer);
+    const { user } = useSelector((state) => state.user);
 
     const wishlistHandler = async () => {
         if (!user) {

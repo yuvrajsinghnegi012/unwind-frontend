@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useLoginMutation } from '../redux/apis/userApi';
 import { setUser } from '../redux/slices/user';
 import toast from 'react-hot-toast';
+import Popup from '../components/Popup';
 
 const Login = () => {
   const [errorMessage, setErrorMessage] = useState(null);
@@ -45,6 +46,9 @@ const Login = () => {
     <section className='h-[90vh] flex justify-center items-center text-[.9rem] md:text-base'>
       <div className='w-[80%] mx-auto flex items-center justify-center gap-32'>
         <div className='w-[20rem]'>
+      <div className='mb-8'>
+      <Popup />
+      </div>
           <h1 className="text-4xl font-semibold mb-1">WELCOME BACK</h1>
           <p className='text-slate-600 font-medium'>Welcome back! Plesae enter your details.</p>
           <form
