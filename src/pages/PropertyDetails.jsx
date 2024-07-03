@@ -31,7 +31,7 @@ const PropertyDetails = () => {
     from: new Date(),
     to: addDays(new Date(), 5),
   });
-  const { user } = useSelector((state) => state.reducer);
+  const { user } = useSelector((state) => state.user);
 
   // Toggle Wishlist and New Booking
   const [toggleWishlist] = useToggleWishlistPropertyMutation();

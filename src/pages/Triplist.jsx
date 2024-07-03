@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Triplist = () => {
   const navigate = useNavigate();
-  const { user } = useSelector((state) => state.reducer);
+  const { user } = useSelector((state) => state.user);
 
   //Fetching Wishlist
   if (!user) {

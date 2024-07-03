@@ -10,7 +10,7 @@ import { setUser } from '../redux/slices/user';
 const HostProperty = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.reducer);
+  const { user } = useSelector((state) => state.user);
   const [category, setCategory] = useState(null);
   const [placeFacilities, setPlaceFacilities] = useState([]);
   const [images, setImages] = useState([]); /// will be sent to the backend in array

@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Propertylist = () => {
   const navigate = useNavigate();
-  const { user } = useSelector((state) => state.reducer);
+  const { user } = useSelector((state) => state.user);
 
   // Checking user login or not
   if (!user) {

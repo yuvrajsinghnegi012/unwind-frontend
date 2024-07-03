@@ -6,7 +6,7 @@ import userSlice from "./slices/user";
 
 export const store = configureStore({
     reducer: {
-        [userSlice.name]: userSlice,
+        [userSlice.name]: userSlice.reducer,
         [userApi.reducerPath]: userApi.reducer,
         [propertyApi.reducerPath]: propertyApi.reducer,
         [bookingApi.reducerPath]: bookingApi.reducer,
