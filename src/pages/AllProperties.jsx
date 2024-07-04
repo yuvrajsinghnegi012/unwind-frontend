@@ -36,8 +36,8 @@ const AllProperties = () => {
         <div className='w-[90%] mx-auto text-sm md:text-[.94rem]'>
           <h1 className="text-[1.65rem] sm:text-3xl md:text-4xl font-bold text-sky-900">All Properties</h1>
           {/* Filters */}
-          <div className="flex justify-between items-center mt-8 flex-wrap text-sm">
-            <div className="flex text-center gap-2 md:gap-[2rem] justify-center">
+          <div className="flex justify-center md:justify-between items-center gap-2 md:gap-0 mt-8 flex-wrap text-sm">
+            <div className="flex flex-col md:flex-row justify-center text-center gap-2 md:gap-[2rem]">
               {/* Category */}
               <select
                 name='category'
@@ -56,7 +56,7 @@ const AllProperties = () => {
                 <option value="dsc">High To Low &darr;</option>
               </select >
               {/* SLIDER -- have to make for price filteration*/}
-              <div className="flex justify-center items-start pt-1">
+              <div className="flex justify-center items-start pt-1 h-8">
                 <RangeSlider
                   min={min}
                   max={max}

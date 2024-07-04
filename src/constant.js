@@ -37,6 +37,7 @@ import {
   FaKitchenSet,
   FaPhone,
   FaHeart,
+  FaUser,
 } from "react-icons/fa6";
 import {
   BiSolidWasher,
@@ -71,7 +72,11 @@ import {
 import { IoDiamond } from "react-icons/io5";
 import { AiFillCar } from "react-icons/ai";
 import { FiMinusCircle } from "react-icons/fi";
-import { IoIosImages } from "react-icons/io";
+import { LuMenu } from "react-icons/lu";
+import { 
+  IoIosImages,
+   IoMdSearch 
+  } from "react-icons/io";
 
 import payment from "../assets/payment.png";
 import bannerImg1 from "../assets/homepage/1.jpg";
@@ -356,7 +361,7 @@ export const facilities = [
 export { logo, payment, loginPhoto };
 export {
   BiSolidMessageAltCheck, FaPhone, FaRegHeart, FaHeart, FiMinusCircle, MdAddCircleOutline, IoIosImages, BiTrash, MdKeyboardArrowRight,
-  MdKeyboardArrowLeft
+  MdKeyboardArrowLeft, IoMdSearch, LuMenu,
 };
 
 

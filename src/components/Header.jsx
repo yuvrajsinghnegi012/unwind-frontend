@@ -1,7 +1,4 @@
-import { IoMdSearch } from "react-icons/io";
-import { LuMenu } from "react-icons/lu";
-import { FaUser } from "react-icons/fa6";
-import { logo } from "../constant";
+import { logo, IoMdSearch, LuMenu, FaUser } from "../constant";
 import {
   Menubar,
   MenubarContent,
