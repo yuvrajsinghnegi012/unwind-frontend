@@ -123,7 +123,7 @@ const PropertyDetails = () => {
             <h1 className="text-[1.65rem] sm:text-3xl md:text-4xl font-bold text-sky-900">{property.name}</h1>
             <div className='flex gap-2 items-center'>
               {
-                inWishlist ? <FaRegHeart className='cursor-pointer transition-all duration-300' onClick={wishlistHandler} /> : <FaHeart className='cursor-pointer transition-all duration-300' onClick={wishlistHandler} />
+                inWishlist ? <FaHeart className='cursor-pointer transition-all duration-300' onClick={wishlistHandler} /> : <FaRegHeart className='cursor-pointer transition-all duration-300' onClick={wishlistHandler} />
               }
               <p className='font-semibold'>Save</p>
             </div>

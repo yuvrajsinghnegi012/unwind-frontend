@@ -83,7 +83,7 @@ const Home = () => {
             <div
               key={id}
               className="w-36 h-32 flex flex-col items-center justify-center md:p-3 cursor-pointer transition-transform transform hover:scale-110 hover:rotate-2 group"
-              onClick={() => navigate(`category/${item.label}`)}
+              onClick={() => item.label != "All" ? navigate(`category/${item.label}`) : navigate(`properties`)}
             >
               <div className="transition-transform transform group-hover:scale-125 group-hover:rotate-3">
                 <item.icon className="text-3xl text-gray-400 transition-colors group-hover:text-sky-500" />
