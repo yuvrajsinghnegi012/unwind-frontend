@@ -9,7 +9,7 @@ import RangeSlider from "../components/RangeSlider";
 
 const AllProperties = () => {
   const min = 0;
-  const max = 100000000;
+  const max = 100000;
   const navigate = useNavigate();
   const [minPrice, setMinPrice] = useState(min);
   const [maxPrice, setMaxPrice] = useState(max);

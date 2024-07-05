@@ -14,7 +14,7 @@ function Popup() {
     return (
         <div className={`flex items-center justify-center text-[.85rem] md:[.9rem] lg:[.95rem] ${ isOpen ? "h-screen " : ''}`}>
             <div className="flex flex-col items-center justify-center">
-                <button onClick={openPopup} className={`border-[2px] text-orange-500 cursor-pointer rounded-3xl border-orange-500 ${isOpen ? "hidden ": "block "}font-semibold py-2 px-4`}>
+                <button onClick={openPopup} className={`border-[2px] text-orange-500 cursor-pointer rounded-3xl border-orange-500 ${isOpen ? "hidden ": "block "} font-semibold py-2 px-4`}>
                     Demo Credentials
                 </button>
                 {isOpen && (

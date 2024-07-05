@@ -361,7 +361,7 @@ export const facilities = [
 export { logo, payment, loginPhoto };
 export {
   BiSolidMessageAltCheck, FaPhone, FaRegHeart, FaHeart, FiMinusCircle, MdAddCircleOutline, IoIosImages, BiTrash, MdKeyboardArrowRight,
-  MdKeyboardArrowLeft, IoMdSearch, LuMenu,
+  MdKeyboardArrowLeft, IoMdSearch, LuMenu, FaUser,
 };
 
 
