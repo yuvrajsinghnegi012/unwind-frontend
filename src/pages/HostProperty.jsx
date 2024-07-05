@@ -139,9 +139,14 @@ const HostProperty = () => {
       return;
     }
     else {
-      dispatch(setUser(data?.updatedUser));
-      toast.success("Property Created");
-      navigate("/properties");
+      if (!data?.success){
+        toast.error(data?.message || "Something went wrong");
+      }
+      else {
+        dispatch(setUser(data?.updatedUser));
+        toast.success("Property Created");
+        navigate("/properties");
+      }
     }
   }
 
