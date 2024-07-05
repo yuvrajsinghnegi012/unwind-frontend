@@ -42,7 +42,7 @@ const AllProperties = () => {
               <select
                 name='category'
                 value={category}
-                onChange={(e) => setCategory(e.target.value)}
+                onChange={(e) => (String(e.target.value) === "All") ? setCategory(null) : setCategory(e.target.value)}
                 className="outline-none border-slate-300 border-2 px-1 py-1 rounded-sm">
                 {
                   categories.map((item, i) => (
